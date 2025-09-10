@@ -1,5 +1,5 @@
 import Joi from "joi";
-import User from "../models/user.js"; // assuming this is your User model
+import User from "../models/User.js"; // assuming this is your User model
 import jwt from "jsonwebtoken";
  
 const schema = Joi.object({
@@ -76,10 +76,12 @@ export const userResolver = {
      const token = jwt.sign(
   { userId: user.id, role: user.role },
   process.env.JWT_SECRET, // now this will have a value
-  { expiresIn: "1h" }
+  { expiresIn: "5h" }
 );
  
       return { token, user };
     }
   },
 };
+ 
+ 
