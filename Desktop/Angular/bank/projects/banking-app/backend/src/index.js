@@ -8,6 +8,7 @@ import { typeDefs, resolvers } from "./graphql/schema.js";
 import accountRoutes from "./routes/accountRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
 import { authMiddleware } from "./middleware/auth.js";
+import loanRoutes from "./routes/loanRoutes.js";
  
  
  
@@ -27,6 +28,7 @@ const startServer = async () => {
   app.use(express.json());
   app.use("/api/accounts", accountRoutes);
   app.use("/api/auth", authRoutes);
+  app.use("/api/loans",loanRoutes)
  
   app.use(
     '/graphql',
